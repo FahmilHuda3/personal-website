@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Muhammad Fahmil Huda | Personal Profile</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0a0f1c;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 15, 28, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #5eead4;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #5eead4;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 25px 50px;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(45, 212, 191, 0.15), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.12), transparent 30%);
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text .small-title {
+            color: #5eead4;
+            font-size: 15px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(45px, 7vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #5eead4;
+        }
+
+        .hero-text p {
+            color: #9ca3af;
+            max-width: 600px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 10px;
+            background: #5eead4;
+            color: #07111f;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(94,234,212,0.25);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid #374151;
+        }
+
+        .button-outline:hover {
+            border-color: #5eead4;
+            color: #5eead4;
+            box-shadow: none;
+        }
+
+        /* PROFILE CARD */
+        .profile-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 25px;
+            padding: 35px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5eead4, #3b82f6);
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-photo div {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .profile-card h2 {
+            margin-bottom: 5px;
+        }
+
+        .profile-card p {
+            color: #9ca3af;
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #5eead4;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-top: 8px;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #111827;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #1f2937;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: #5eead4;
+        }
+
+        .info-card h3 {
+            color: #5eead4;
+            font-size: 15px;
+            margin-bottom: 7px;
+        }
+
+        .info-card p {
+            color: #d1d5db;
+        }
+
+        /* DREAM */
+        .dream-box {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(94,234,212,0.1),
+                    rgba(59,130,246,0.08)
+                );
+            border: 1px solid rgba(94,234,212,0.2);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .dream-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .dream-box p {
+            color: #cbd5e1;
+            max-width: 800px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: #111827;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #1f2937;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .skill-header span:first-child {
+            font-weight: bold;
+        }
+
+        .skill-header span:last-child {
+            color: #5eead4;
+        }
+
+        .progress {
+            height: 8px;
+            background: #1f2937;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #5eead4, #3b82f6);
+            border-radius: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #1f2937;
+            text-align: center;
+            padding: 30px 20px;
+            color: #6b7280;
+        }
+
+        footer span {
+            color: #5eead4;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .about-grid,
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                max-width: 400px;
+                margin: auto;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                FH<span>.</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Profil</a></li>
+                <li><a href="#skills">Bidang IT</a></li>
+                <li><a href="#dream">Cita-Cita</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+
+            <div class="hero-text">
+
+                <div class="small-title">
+                    HELLO, I'M
+                </div>
+
+                <h1>
+                    Muhammad<br>
+                    <span>Fahmil Huda.</span>
+                </h1>
+
+                <p>
+                    Mahasiswa Pendidikan Teknik Informatika dan Komputer
+                    yang tertarik pada teknologi, pengembangan aplikasi,
+                    dan dunia IT.
+                </p>
+
+                <a href="#about" class="button">
+                    Lihat Profil
+                </a>
+
+                <a href="#skills" class="button button-outline">
+                    Bidang IT
+                </a>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-photo">
+                    <div>FH</div>
+                </div>
+
+                <h2>Muhammad Fahmil Huda</h2>
+
+                <p>
+                    Pendidikan Teknik Informatika dan Komputer
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROFIL -->
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>ABOUT ME</small>
+                <h2>Profil Saya</h2>
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="info-card">
+                    <h3>Nama</h3>
+                    <p>Muhammad Fahmil Huda</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>NIM</h3>
+                    <p>2505090041</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Program Studi</h3>
+                    <p>Pendidikan Teknik Informatika dan Komputer</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Universitas</h3>
+                    <p>Universitas Negeri Semarang</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Tahun Angkatan</h3>
+                    <p>2025</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Kesibukan</h3>
+                    <p>
+                        Kuliah, kegiatan UKM, serta mengembangkan
+                        berbagai proyek digital.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CITA-CITA -->
+    <section id="dream">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>MY DREAM</small>
+                <h2>Cita-Cita</h2>
+            </div>
+
+            <div class="dream-box">
+
+                <h3>
+                    Menjadi Profesional di Bidang IT
+                </h3>
+
+                <p>
+                    Saya ingin menjadi seorang profesional IT yang memiliki
+                    kemampuan kuat dalam mengembangkan teknologi dan aplikasi.
+                    Tidak hanya memahami teori, saya juga ingin mampu membuat
+                    solusi teknologi yang dapat digunakan dan memberikan
+                    manfaat bagi banyak orang.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BIDANG IT -->
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>MY INTEREST</small>
+                <h2>Bidang IT yang Ingin Didalami</h2>
+            </div>
+
+
+            <div class="skills">
+
+                <div class="skill-card">
+
+                    <div class="skill-header">
+                        <span>Web Development</span>
+                        <span>80%</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            style="width: 80%;">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-header">
+                        <span>Artificial Intelligence</span>
+                        <span>75%</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            style="width: 75%;">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-header">
+                        <span>Computer Vision</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            style="width: 70%;">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-header">
+                        <span>Software Engineering</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            style="width: 70%;">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <span>Muhammad Fahmil Huda</span>.
+            Personal Profile Website.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
